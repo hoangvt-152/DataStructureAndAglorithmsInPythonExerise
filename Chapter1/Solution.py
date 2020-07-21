@@ -1,3 +1,4 @@
+import math
 #R-1.1
 def is_multipe(n,m):
     return (n%m == 0)
@@ -57,4 +58,41 @@ def reserves_list(data):
     
 
 print(reserves_list([1,2,3,4,5,6]))
-#R-1.15    
+#C-1.14
+def has_odd_product(data):
+    count_odd_numbers = 0
+    for datumn in data:
+        if datumn&1 == 1:
+            count_odd_numbers += 1
+            if count_odd_numbers >= 2:
+                return True
+
+    return False
+
+print(has_odd_product([2,6,4,5]))   
+
+#C- 1.15
+def check_distinct(data):
+    result = True
+    set_numbers = set()
+    for datumn in data:
+        if datumn in set_numbers:
+            result = False
+            break
+        else:
+            set_numbers.add(datumn)
+    return result
+
+print("check_distinction")
+print(check_distinct([2,3,4,5]))
+
+
+def p_norm(p,data):
+    sum = 0
+    for datumn in data:
+        sum +=math.pow(datumn,p)
+
+    return math.pow(sum,1/p)
+
+print(p_norm(2,[3,4]))
+
