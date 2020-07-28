@@ -95,4 +95,30 @@ def p_norm(p,data):
     return math.pow(sum,1/p)
 
 print(p_norm(2,[3,4]))
-
+def convert_chars_to_str(list_of_char):
+    result = ""
+    for chr in list_of_char:
+        result += chr
+    return result    
+def build_strings_from_chars(list_of_chars,mark_used_chars=[],current_string=[],result=[]):
+   number_of_chars = len(list_of_chars)
+   
+   for i in range(number_of_chars):
+       if len(current_string) == 0:
+        for i in range(number_of_chars):
+            mark_used_chars.append(False)
+       if (mark_used_chars[i] == False):
+           current_string.append(list_of_chars[i])
+           print(convert_chars_to_str(current_string))
+           mark_used_chars[i]= True
+           result.append(current_string)
+           build_strings_from_chars(list_of_chars,mark_used_chars,current_string,result)
+           current_string.remove(current_string[-1])
+           mark_used_chars[i]=False
+   
+list_of_chars=['a','b','c']
+mark_used_chars =[]
+current_string =[]
+result = []
+build_strings_from_chars(list_of_chars,mark_used_chars,current_string,result)
+print("---->"+str(len(result)))
