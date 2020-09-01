@@ -99,7 +99,9 @@ def convert_chars_to_str(list_of_char):
     result = ""
     for chr in list_of_char:
         result += chr
-    return result    
+    return result
+
+#P-1.29        
 def build_strings_from_chars(list_of_chars,mark_used_chars=[],current_string=[],result=[]):
    number_of_chars = len(list_of_chars)
    
@@ -120,5 +122,19 @@ list_of_chars=['a','b','c']
 mark_used_chars =[]
 current_string =[]
 result = []
-build_strings_from_chars(list_of_chars,mark_used_chars,current_string,result)
-print("---->"+str(len(result)))
+
+
+#build_strings_from_chars(list_of_chars,mark_used_chars,current_string,result)
+#print("---->"+str(len(result)))
+#P-1.30
+def caculate_number_div():
+    input_number =int(input())
+    result = 0
+    while(input_number > 2):
+        input_number = input_number//2
+        result = result + 1
+
+    return result
+
+
+print(caculate_number_div())
